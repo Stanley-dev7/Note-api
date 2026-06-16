@@ -74,6 +74,5 @@ POST /api/notes
 GET /api/notes  
 PUT /api/notes/:id  
 DELETE /api/notes/:id
-- Deploy to cloud (Render / Railway)
 - Add Swagger documentation
 - Write unit tests for handlers
