@@ -44,9 +44,7 @@ Protected (Requires JWT)
 - PUT /api/notes/{id}
 - DELETE /api/notes/{id}
 
-Challenges & Learning Goals
-This project was built step-by-step to simulate real backend development challenges:
-
+Challenges & Learning Goals.
 - Implementing JWT authentication from scratch
 - Working with SQLite database integration in Go
 - Securing passwords using bcrypt hashing
