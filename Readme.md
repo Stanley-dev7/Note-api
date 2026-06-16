@@ -61,6 +61,21 @@ Future Improvements
 - Add refresh tokens for better security
 - Implement input validation middleware
 - Add pagination for notes
+
+ Live API
+Base url: https://note-api-jlsq.onrender.com
+
+Authentication
+- JWT-based authentication system
+- Users must login to access notes
+
+ API Endpoints
+POST /register  
+POST /login  
+POST /api/notes  
+GET /api/notes  
+PUT /api/notes/:id  
+DELETE /api/notes/:id
 - Deploy to cloud (Render / Railway)
 - Add Swagger documentation
 - Write unit tests for handlers
