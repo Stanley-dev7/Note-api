@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"day33-notes-api/database"
 	"day33-notes-api/handlers"
@@ -13,16 +14,19 @@ import (
 
 func main() {
 
+	// CONNECT DATABASE
 	database.Connect()
 	database.InitTables()
 
+	// ROUTER
 	r := mux.NewRouter()
 
-	// PUBLIC ROUTES
+	// HEALTH CHECK (for Render)
 	r.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("API is running"))
 	}).Methods("GET")
 
+	// PUBLIC ROUTES
 	r.HandleFunc("/register", handlers.Register).Methods("POST")
 	r.HandleFunc("/login", handlers.Login).Methods("POST")
 
@@ -35,6 +39,12 @@ func main() {
 	protected.HandleFunc("/notes/{id}", handlers.UpdateNote).Methods("PUT")
 	protected.HandleFunc("/notes/{id}", handlers.DeleteNote).Methods("DELETE")
 
-	log.Println("Server running on :8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	// PORT CONFIG (RENDER FIX)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Println("Server running on port", port)
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
