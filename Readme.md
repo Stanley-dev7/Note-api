@@ -23,22 +23,17 @@ Tech Stack
 
 
  Authentication Flow
-
 1. Register user
 2. Login user
 3. Receive JWT token
 4. Use token to access protected routes
 
-
  API Routes
-
  Public
-
 - POST /register
 - POST /login
 
 Protected (Requires JWT)
-
 - POST /api/notes
 - GET /api/notes
 - PUT /api/notes/{id}
@@ -55,7 +50,6 @@ Challenges & Learning Goals.
 - Managing Go modules and dependencies
 
 Future Improvements
-
 - Add refresh tokens for better security
 - Implement input validation middleware
 - Add pagination for notes
@@ -74,5 +68,5 @@ POST /api/notes
 GET /api/notes  
 PUT /api/notes/:id  
 DELETE /api/notes/:id
-- Add Swagger documentation
-- Write unit tests for handlers
+PUT /api/notes/:id  
+DELETE /api/notes/:id
